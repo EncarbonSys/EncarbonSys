@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EncarbonSys™ - CBAM Compliance Simplified</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cosmic-green: #00ff88;
+      --dark-cosmic: #0a1a0f;
+      --cosmic-glow: rgba(0, 255, 136, 0.2);
+      --cosmic-bg: #0f2419;
+      --cosmic-card: rgba(15, 36, 25, 0.8);
+      --cosmic-text: #e8f5e8;
+      --cosmic-accent: #34d399;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--dark-cosmic) 0%, var(--cosmic-bg) 50%, #1a2e23 100%);
+      font-family: 'Inter', sans-serif;
+      color: var(--cosmic-text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Cosmic Background Animation */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, var(--cosmic-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(52, 211, 153, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, var(--cosmic-glow) 0%, transparent 50%);
+      animation: cosmicPulse 8s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes cosmicPulse {
+      0% { opacity: 0.3; transform: scale(1); }
+      100% { opacity: 0.6; transform: scale(1.1); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px var(--cosmic-glow); }
+      50% { box-shadow: 0 0 40px var(--cosmic-glow), 0 0 60px var(--cosmic-glow); }
+    }
+
+    @keyframes textGlow {
+      0%, 100% { text-shadow: 0 0 10px var(--cosmic-green); }
+      50% { text-shadow: 0 0 20px var(--cosmic-green), 0 0 30px var(--cosmic-green); }
+    }
+
+    .cosmic-card {
+      background: var(--cosmic-card);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      border-radius: 1.5rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .cosmic-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--cosmic-green);
+      box-shadow: 0 20px 60px var(--cosmic-glow);
+    }
+
+    .cosmic-button {
+      background: linear-gradient(45deg, var(--cosmic-green), var(--cosmic-accent));
+      color: var(--dark-cosmic);
+      border: none;
+      border-radius: 2rem;
+      padding: 12px 32px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cosmic-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .cosmic-button:hover::before {
+      left: 100%;
+    }
+
+    .cosmic-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px var(--cosmic-glow);
+      animation: glow 2s infinite;
+    }
+
+    .cosmic-button-outline {
+      background: transparent;
+      color: var(--cosmic-green);
+      border: 2px solid var(--cosmic-green);
+      border-radius: 2rem;
+      padding: 10px 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .cosmic-button-outline:hover {
+      background: var(--cosmic-green);
+      color: var(--dark-cosmic);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px var(--cosmic-glow);
+    }
+
+    .cosmic-title {
+      background: linear-gradient(45deg, var(--cosmic-green), var(--cosmic-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: textGlow 3s ease-in-out infinite;
+    }
+
+    .section-alt {
+      background: linear-gradient(135deg, rgba(16, 42, 26, 0.9), rgba(10, 26, 15, 0.8));
+    }
+
+    .section-dark {
+      background: linear-gradient(135deg, rgba(5, 15, 8, 0.9), rgba(15, 36, 25, 0.8));
+    }
+
+    .section-glow {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(52, 211, 153, 0.05));
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .stagger-animation {
+      animation-delay: var(--delay, 0s);
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--dark-cosmic);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--cosmic-green);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--cosmic-accent);
+    }
+  </style>
+</head>
+<body>
+  <header class="p-6 text-center cosmic-card mx-4 my-6 floating">
+    <h1 class="text-4xl md:text-5xl font-bold cosmic-title mb-2">EncarbonSys™</h1>
+    <p class="text-xl mt-2 text-cosmic-accent font-medium">CBAM Compliance. Done for You.</p>
+    <p class="text-sm text-cosmic-text opacity-80 mt-1">India's first plug-and-play CBAM report engine for exporters</p>
+    <div class="mt-6 space-x-4">
+      <a href="#cta" class="cosmic-button">Generate My CBAM Report</a>
+      <a href="#cta" class="cosmic-button-outline">Book Free Call</a>
+    </div>
+  </header>
+
+  <main class="px-4 md:px-24 py-10 space-y-12">
+
+    <section class="cosmic-card p-8 section-glow stagger-animation" style="--delay: 0.2s">
+      <h2 class="text-3xl font-bold mb-6 cosmic-title">The Problem</h2>
+      <p class="text-lg leading-relaxed mb-4">The EU's Carbon Border Adjustment Mechanism (CBAM) is non-negotiable. If you're exporting steel, aluminium, fertilizers, cement, hydrogen, or electricity — you <strong class="text-cosmic-green">must</strong> submit emission reports. No valid XML = No entry to the EU.</p>
+      <ul class="list-disc pl-6 mt-6 space-y-2 text-cosmic-accent">
+        <li>Shipment delays</li>
+        <li>Penalties from customs</li>
+        <li>Lost buyers</li>
+      </ul>
+      <p class="mt-6 text-lg font-medium text-cosmic-green">Most MSMEs don't have the tools. EncarbonSys gives you CBAM compliance — fast, legit, and export-ready.</p>
+    </section>
+
+    <section class="cosmic-card p-8 section-alt stagger-animation" style="--delay: 0.4s">
+      <h2 class="text-3xl font-bold mb-6 cosmic-title">Our Solution</h2>
+      <ul class="list-disc pl-6 space-y-3 text-lg">
+        <li><span class="text-cosmic-green font-semibold">EU-validated XML report</span> (submission-ready)</li>
+        <li><span class="text-cosmic-green font-semibold">Professionally designed PDF report</span></li>
+        <li><span class="text-cosmic-green font-semibold">Emission calculations</span> using official CBAM default values</li>
+        <li><span class="text-cosmic-green font-semibold">Delivered in 48 hours</span> — no code or setup required</li>
+      </ul>
+    </section>
+
+    <section class="cosmic-card p-8 section-dark stagger-animation" style="--delay: 0.6s">
+      <h2 class="text-3xl font-bold mb-6 cosmic-title">How It Works</h2>
+      <ol class="list-decimal pl-6 space-y-3 text-lg">
+        <li>Upload your export data (spreadsheet, invoice, or email)</li>
+        <li>We calculate emissions using CBAM defaults</li>
+        <li>You get your PDF + XML reports</li>
+        <li>Submit to EU portal or attach to shipments</li>
+        <li>Repeat each quarter</li>
+      </ol>
+    </section>
+
+    <section class="cosmic-card p-8 section-glow stagger-animation" style="--delay: 0.8s">
+      <h2 class="text-3xl font-bold mb-6 cosmic-title">How Much You Save</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-red-900 bg-opacity-20 p-6 rounded-xl border border-red-500 border-opacity-30">
+          <h3 class="font-bold mb-4 text-xl text-red-300">Traditional Route</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Environmental consultant: ₹1,00,000+</li>
+            <li>Legal/compliance advisor: ₹50,000</li>
+            <li>2–4 weeks of back-and-forth</li>
+          </ul>
+        </div>
+        <div class="bg-cosmic-green bg-opacity-10 p-6 rounded-xl border border-cosmic-green border-opacity-30">
+          <h3 class="font-bold mb-4 text-xl text-cosmic-green">EncarbonSys Route</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Flat ₹35,000 per report</li>
+            <li>Delivered in 48 hours</li>
+            <li>Zero meetings, zero drama</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-6 font-bold text-xl text-cosmic-green text-center">Average savings: ₹1,15,000 per quarter<br/>Time saved: 3–4 weeks per cycle</p>
+    </section>
+
+    <section class="cosmic-card p-8 section-alt stagger-animation" style="--delay: 1s">
+      <h2 class="text-3xl font-bold mb-6 cosmic-title">Who Is This For?</h2>
+      <ul class="list-disc pl-6 space-y-3 text-lg">
+        <li>Steel or aluminium exporters</li>
+        <li>Fertilizer or cement suppliers</li>
+        <li>Consultants managing multiple MSMEs</li>
+        <li>Legal/customs teams needing reports</li>
+        <li>MSMEs without full emissions breakdowns</li>
+      </ul>
+    </section>
+
+    <section class="cosmic-card p-8 section-dark stagger-animation" style="--delay: 1.2s">
+      <h2 class="text-3xl font-bold mb-6 cosmic-title">Packages & Pricing</h2>
+      <div class="bg-cosmic-green bg-opacity-10 p-6 rounded-xl border border-cosmic-green border-opacity-30">
+        <h3 class="font-bold text-xl mb-4 text-cosmic-green">CBAM Compliance Report (One-time)</h3>
+        <ul class="list-disc pl-6 space-y-2 mb-4">
+          <li>Valid for 1 quarter</li>
+          <li>Includes PDF + XML</li>
+          <li>Audit trail and emissions summary</li>
+        </ul>
+        <p class="text-2xl font-bold text-cosmic-green">₹35,000/report</p>
+      </div>
+      <p class="mt-6 italic text-cosmic-accent">Bulk exporter packs and dashboards coming soon.</p>
+    </section>
+
+    <section class="cosmic-card p-8 section-glow stagger-animation" style="--delay: 1.4s">
+      <h2 class="text-3xl font-bold mb-6 cosmic-title">Why EncarbonSys</h2>
+      <ul class="list-disc pl-6 space-y-3 text-lg">
+        <li><span class="text-cosmic-green font-semibold">Built for exporters</span> — no ESG theatre</li>
+        <li><span class="text-cosmic-green font-semibold">Default-value emissions engine</span></li>
+        <li><span class="text-cosmic-green font-semibold">PDF & XML outputs</span>, submission-ready</li>
+        <li><span class="text-cosmic-green font-semibold">India-first, EU-compliant</span></li>
+        <li><span class="text-cosmic-green font-semibold">No login, no platform fees</span> — pay per report</li>
+      </ul>
+    </section>
+
+    <section class="cosmic-card p-8 section-alt stagger-animation" style="--delay: 1.6s">
+      <h2 class="text-3xl font-bold mb-6 cosmic-title">About EncarbonSys</h2>
+      <p class="text-lg leading-relaxed mb-4">EncarbonSys™ is a carbon compliance automation engine designed to make CBAM simple for Indian exporters. We don't just generate reports — we eliminate confusion, compress bureaucracy, and help you scale with confidence.</p>
+      <p class="text-lg leading-relaxed text-cosmic-accent font-medium">Built in India. Compliant in Europe. Powered by automation, spreadsheets, and pure rage at bad systems.</p>
+    </section>
+
+    <section id="cta" class="cosmic-card p-10 text-center section-dark stagger-animation floating" style="--delay: 1.8s">
+      <h2 class="text-4xl font-bold mb-6 cosmic-title">Act Before Penalties Hit</h2>
+      <p class="text-xl mb-6 text-cosmic-accent">CBAM reporting is already active. In 2026, financial enforcement begins.</p>
+      <div class="mt-8 space-x-6">
+        <a href="#" class="cosmic-button text-lg px-8 py-4">Generate My CBAM Report</a>
+        <a href="#" class="cosmic-button-outline text-lg px-8 py-4">Book a Free Call</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cosmic-card mx-4 mb-6 text-center py-8 text-sm section-alt">
+    <p class="text-cosmic-accent font-medium">EncarbonSys™ © 2025 • A part of the Orbit™ Systems Collective</p>
+    <p class="mt-2 text-cosmic-text opacity-80">MSME Ready | Startup India Aligned | Privacy-First • contact@encarbonsys.com</p>
+  </footer>
+
+  <script>
+    // Add intersection observer for staggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections with stagger animation
+    document.querySelectorAll('.stagger-animation').forEach(section => {
+      section.style.animationPlayState = 'paused';
+      observer.observe(section);
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
