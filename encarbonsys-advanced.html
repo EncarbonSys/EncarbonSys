@@ -154,20 +154,22 @@
 
         .nav-cta {
             background: linear-gradient(135deg, var(--cosmic-green) 0%, var(--cosmic-accent) 100%);
-            color: var(--dark-cosmic);
+            color: #000000;
             padding: 0.8rem 1.8rem;
             border: none;
             border-radius: 12px;
-            font-weight: 700;
+            font-weight: 800;
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 0.9rem;
             box-shadow: 0 0 25px var(--cosmic-glow);
+            text-shadow: none;
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 40px var(--cosmic-glow);
+            color: #000000;
         }
 
         /* Hero Section */
@@ -520,57 +522,121 @@
             overflow: hidden;
         }
 
-        /* Main Content Sections */
-        .main-content {
-            padding: 120px 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+                 /* Main Content Sections */
+         .main-content {
+             padding: 120px 2rem;
+             max-width: 1400px;
+             margin: 0 auto;
+         }
 
-        .section {
-            margin-bottom: 120px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
+         .section {
+             margin-bottom: 120px;
+             opacity: 0;
+             transform: translateY(30px);
+             transition: opacity 0.6s ease, transform 0.6s ease;
+             will-change: opacity, transform;
+         }
 
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+         .section.visible {
+             opacity: 1;
+             transform: translateY(0);
+         }
 
-        .section-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 4rem;
-            backdrop-filter: blur(20px);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
+         /* Section-specific backgrounds */
+         .section-problem {
+             background: 
+                 linear-gradient(135deg, rgba(10, 26, 15, 0.85) 0%, rgba(26, 42, 32, 0.8) 100%),
+                 url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+             background-size: cover;
+             background-position: center;
+             background-attachment: scroll;
+             border-radius: 24px;
+             position: relative;
+             overflow: hidden;
+         }
 
-        .section-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--cosmic-green), var(--cosmic-accent));
-            transform: scaleX(0);
-            transition: transform 0.5s ease;
-        }
+         .section-solution {
+             background: 
+                 linear-gradient(135deg, rgba(15, 36, 25, 0.85) 0%, rgba(10, 26, 15, 0.8) 100%),
+                 url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+             background-size: cover;
+             background-position: center;
+             background-attachment: scroll;
+             border-radius: 24px;
+             position: relative;
+             overflow: hidden;
+         }
 
-        .section-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 255, 136, 0.4);
-            box-shadow: 0 25px 80px var(--cosmic-glow);
-        }
+         .section-process {
+             background: 
+                 linear-gradient(135deg, rgba(26, 42, 32, 0.85) 0%, rgba(15, 36, 25, 0.8) 100%),
+                 url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+             background-size: cover;
+             background-position: center;
+             background-attachment: scroll;
+             border-radius: 24px;
+             position: relative;
+             overflow: hidden;
+         }
 
-        .section-card:hover::before {
-            transform: scaleX(1);
-        }
+         .section-savings {
+             background: 
+                 linear-gradient(135deg, rgba(10, 26, 15, 0.85) 0%, rgba(26, 42, 32, 0.8) 100%),
+                 url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+             background-size: cover;
+             background-position: center;
+             background-attachment: scroll;
+             border-radius: 24px;
+             position: relative;
+             overflow: hidden;
+         }
+
+         .section-audience {
+             background: 
+                 linear-gradient(135deg, rgba(15, 36, 25, 0.85) 0%, rgba(10, 26, 15, 0.8) 100%),
+                 url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+             background-size: cover;
+             background-position: center;
+             background-attachment: scroll;
+             border-radius: 24px;
+             position: relative;
+             overflow: hidden;
+         }
+
+                 .section-card {
+             background: rgba(255, 255, 255, 0.12);
+             border: 1px solid rgba(255, 255, 255, 0.2);
+             border-radius: 24px;
+             padding: 4rem;
+             backdrop-filter: blur(25px);
+             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+             position: relative;
+             overflow: hidden;
+             will-change: transform;
+         }
+
+         .section-card::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             height: 4px;
+             background: linear-gradient(90deg, var(--cosmic-green), var(--cosmic-accent));
+             transform: scaleX(0);
+             transition: transform 0.4s ease;
+             transform-origin: left;
+         }
+
+         .section-card:hover {
+             transform: translateY(-5px);
+             border-color: rgba(0, 255, 136, 0.4);
+             box-shadow: 0 20px 60px rgba(0, 255, 136, 0.2);
+         }
+
+         .section-card:hover::before {
+             transform: scaleX(1);
+         }
 
         .section-title {
             font-size: clamp(2rem, 4vw, 3.5rem);
@@ -598,30 +664,36 @@
             margin-top: 3rem;
         }
 
-        .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            text-align: center;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-        }
+                 .feature-card {
+             background: rgba(255, 255, 255, 0.08);
+             padding: 2.5rem;
+             border-radius: 20px;
+             border: 1px solid rgba(255, 255, 255, 0.15);
+             text-align: center;
+             transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+             backdrop-filter: blur(15px);
+             will-change: transform;
+         }
 
-        .feature-card:hover {
-            transform: translateY(-8px);
-            background: rgba(0, 255, 136, 0.1);
-            border-color: var(--cosmic-green);
-            box-shadow: 0 20px 60px var(--cosmic-glow);
-        }
+         .feature-card:hover {
+             transform: translateY(-5px);
+             background: rgba(0, 255, 136, 0.12);
+             border-color: rgba(0, 255, 136, 0.4);
+             box-shadow: 0 15px 40px rgba(0, 255, 136, 0.25);
+         }
 
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--cosmic-green);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            animation: bounce 3s infinite;
-        }
+                 .feature-icon {
+             font-size: 3rem;
+             color: var(--cosmic-green);
+             margin-bottom: 1.5rem;
+             display: inline-block;
+             animation: gentle-bounce 4s ease-in-out infinite;
+         }
+
+         @keyframes gentle-bounce {
+             0%, 100% { transform: translateY(0px); }
+             50% { transform: translateY(-5px); }
+         }
 
         .feature-title {
             font-size: 1.3rem;
@@ -953,9 +1025,9 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Problem Section -->
-        <section id="problem" class="section scroll-reveal">
-            <div class="section-card">
+                 <!-- Problem Section -->
+         <section id="problem" class="section scroll-reveal section-problem">
+             <div class="section-card">
                 <h2 class="section-title">
                     <i class="fas fa-exclamation-triangle"></i>
                     The Problem
@@ -986,9 +1058,9 @@
             </div>
         </section>
 
-        <!-- Solution Section -->
-        <section id="solution" class="section scroll-reveal">
-            <div class="section-card">
+                 <!-- Solution Section -->
+         <section id="solution" class="section scroll-reveal section-solution">
+             <div class="section-card">
                 <h2 class="section-title">
                     <i class="fas fa-check-circle"></i>
                     Our Solution
@@ -1018,9 +1090,9 @@
             </div>
         </section>
 
-        <!-- How It Works -->
-        <section class="section scroll-reveal">
-            <div class="section-card">
+                 <!-- How It Works -->
+         <section class="section scroll-reveal section-process">
+             <div class="section-card">
                 <h2 class="section-title">
                     <i class="fas fa-cogs"></i>
                     How It Works
@@ -1050,9 +1122,9 @@
             </div>
         </section>
 
-        <!-- Savings Section -->
-        <section class="section scroll-reveal">
-            <div class="section-card">
+                 <!-- Savings Section -->
+         <section class="section scroll-reveal section-savings">
+             <div class="section-card">
                 <h2 class="section-title">
                     <i class="fas fa-piggy-bank"></i>
                     How Much You Save
@@ -1097,9 +1169,9 @@
             </div>
         </section>
 
-        <!-- Who Is This For -->
-        <section class="section scroll-reveal">
-            <div class="section-card">
+                 <!-- Who Is This For -->
+         <section class="section scroll-reveal section-audience">
+             <div class="section-card">
                 <h2 class="section-title">
                     <i class="fas fa-users"></i>
                     Who Is This For?
@@ -1262,29 +1334,32 @@
             }, 16);
         }
 
-        // Scroll Reveal Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+                 // Scroll Reveal Animation - Optimized
+         const observerOptions = {
+             threshold: 0.15,
+             rootMargin: '0px 0px -80px 0px'
+         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Animate counters when dashboard comes into view
-                    const counters = entry.target.querySelectorAll('.counter');
-                    counters.forEach(counter => {
-                        if (!counter.classList.contains('animated')) {
-                            counter.classList.add('animated');
-                            const target = parseFloat(counter.getAttribute('data-target'));
-                            animateCounter(counter, target);
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
+         const observer = new IntersectionObserver((entries) => {
+             entries.forEach(entry => {
+                 if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+                     // Add small delay to prevent overlapping animations
+                     setTimeout(() => {
+                         entry.target.classList.add('visible');
+                     }, 100);
+                     
+                     // Animate counters when dashboard comes into view
+                     const counters = entry.target.querySelectorAll('.counter');
+                     counters.forEach(counter => {
+                         if (!counter.classList.contains('animated')) {
+                             counter.classList.add('animated');
+                             const target = parseFloat(counter.getAttribute('data-target'));
+                             setTimeout(() => animateCounter(counter, target), 300);
+                         }
+                     });
+                 }
+             });
+         }, observerOptions);
 
         // Observe all scroll reveal elements
         document.addEventListener('DOMContentLoaded', () => {
@@ -1332,20 +1407,23 @@
             });
         });
 
-        // Parallax effect for hero background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
+                     // Optimized parallax effect with throttling
+             let ticking = false;
+             function updateParallax() {
+                 const scrolled = window.pageYOffset;
+                 const hero = document.querySelector('.hero');
+                 if (hero && scrolled < window.innerHeight) {
+                     hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                 }
+                 ticking = false;
+             }
 
-        // Dynamic background animation speed based on scroll
-        window.addEventListener('scroll', () => {
-            const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
-            document.documentElement.style.setProperty('--scroll-speed', `${20 + (scrollPercent * 10)}s`);
-        });
+             window.addEventListener('scroll', () => {
+                 if (!ticking) {
+                     requestAnimationFrame(updateParallax);
+                     ticking = true;
+                 }
+             });
     </script>
 </body>
 </html>
