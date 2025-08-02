@@ -673,6 +673,23 @@
              transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
              backdrop-filter: blur(15px);
              will-change: transform;
+             position: relative;
+             overflow: hidden;
+         }
+
+         .feature-card::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background-size: cover;
+             background-position: center;
+             background-repeat: no-repeat;
+             opacity: 0.15;
+             z-index: -1;
+             transition: opacity 0.3s ease;
          }
 
          .feature-card:hover {
@@ -680,6 +697,100 @@
              background: rgba(0, 255, 136, 0.12);
              border-color: rgba(0, 255, 136, 0.4);
              box-shadow: 0 15px 40px rgba(0, 255, 136, 0.25);
+         }
+
+         .feature-card:hover::before {
+             opacity: 0.25;
+         }
+
+         .feature-card .feature-content {
+             position: relative;
+             z-index: 2;
+         }
+
+         /* Specific card backgrounds */
+         .card-delays::before {
+             background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-penalties::before {
+             background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-buyers::before {
+             background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-xml::before {
+             background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-pdf::before {
+             background-image: url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-calculations::before {
+             background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-delivery::before {
+             background-image: url('https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-upload::before {
+             background-image: url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-calculate::before {
+             background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-reports::before {
+             background-image: url('https://images.unsplash.com/photo-1554224154-26032fced8bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-submit::before {
+             background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-steel::before {
+             background-image: url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-fertilizer::before {
+             background-image: url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-consultants::before {
+             background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-legal::before {
+             background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-msmes::before {
+             background-image: url('https://images.unsplash.com/photo-1664382953518-8ad96ddc3c9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-exporters::before {
+             background-image: url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-engine::before {
+             background-image: url('https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-outputs::before {
+             background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-india::before {
+             background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+         }
+
+         .card-payment::before {
+             background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
          }
 
                  .feature-icon {
@@ -1035,23 +1146,29 @@
                 <div class="section-content">
                     <p style="font-size: 1.2rem; margin-bottom: 2rem;">The EU's Carbon Border Adjustment Mechanism (CBAM) is non-negotiable. If you're exporting steel, aluminium, fertilizers, cement, hydrogen, or electricity — you <strong style="color: var(--cosmic-green);">must</strong> submit emission reports. No valid XML = No entry to the EU.</p>
                     
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">⏰</div>
-                            <div class="feature-title">Shipment Delays</div>
-                            <div class="feature-description">Missing CBAM reports can delay your shipments and disrupt supply chains</div>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">💰</div>
-                            <div class="feature-title">Penalties from Customs</div>
-                            <div class="feature-description">Non-compliance results in hefty fines and customs penalties</div>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">😔</div>
-                            <div class="feature-title">Lost Buyers</div>
-                            <div class="feature-description">EU buyers won't risk non-compliant suppliers</div>
-                        </div>
-                    </div>
+                                         <div class="features-grid">
+                         <div class="feature-card card-delays">
+                             <div class="feature-content">
+                                 <div class="feature-icon">⏰</div>
+                                 <div class="feature-title">Shipment Delays</div>
+                                 <div class="feature-description">Missing CBAM reports can delay your shipments and disrupt supply chains</div>
+                             </div>
+                         </div>
+                         <div class="feature-card card-penalties">
+                             <div class="feature-content">
+                                 <div class="feature-icon">💰</div>
+                                 <div class="feature-title">Penalties from Customs</div>
+                                 <div class="feature-description">Non-compliance results in hefty fines and customs penalties</div>
+                             </div>
+                         </div>
+                         <div class="feature-card card-buyers">
+                             <div class="feature-content">
+                                 <div class="feature-icon">😔</div>
+                                 <div class="feature-title">Lost Buyers</div>
+                                 <div class="feature-description">EU buyers won't risk non-compliant suppliers</div>
+                             </div>
+                         </div>
+                     </div>
                     
                     <p style="font-size: 1.2rem; margin-top: 2rem; color: var(--cosmic-green); font-weight: 600;">Most MSMEs don't have the tools. EncarbonSys gives you CBAM compliance — fast, legit, and export-ready.</p>
                 </div>
@@ -1065,28 +1182,36 @@
                     <i class="fas fa-check-circle"></i>
                     Our Solution
                 </h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">📋</div>
-                        <div class="feature-title">EU-validated XML report</div>
-                        <div class="feature-description">Submission-ready reports that meet all EU CBAM requirements</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📄</div>
-                        <div class="feature-title">Professional PDF report</div>
-                        <div class="feature-description">Beautifully designed reports for stakeholder presentations</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🧮</div>
-                        <div class="feature-title">Emission calculations</div>
-                        <div class="feature-description">Using official CBAM default values for accurate compliance</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <div class="feature-title">48-hour delivery</div>
-                        <div class="feature-description">No code, no setup required. Just upload and receive</div>
-                    </div>
-                </div>
+                                 <div class="features-grid">
+                     <div class="feature-card card-xml">
+                         <div class="feature-content">
+                             <div class="feature-icon">📋</div>
+                             <div class="feature-title">EU-validated XML report</div>
+                             <div class="feature-description">Submission-ready reports that meet all EU CBAM requirements</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-pdf">
+                         <div class="feature-content">
+                             <div class="feature-icon">📄</div>
+                             <div class="feature-title">Professional PDF report</div>
+                             <div class="feature-description">Beautifully designed reports for stakeholder presentations</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-calculations">
+                         <div class="feature-content">
+                             <div class="feature-icon">🧮</div>
+                             <div class="feature-title">Emission calculations</div>
+                             <div class="feature-description">Using official CBAM default values for accurate compliance</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-delivery">
+                         <div class="feature-content">
+                             <div class="feature-icon">⚡</div>
+                             <div class="feature-title">48-hour delivery</div>
+                             <div class="feature-description">No code, no setup required. Just upload and receive</div>
+                         </div>
+                     </div>
+                 </div>
             </div>
         </section>
 
@@ -1097,28 +1222,36 @@
                     <i class="fas fa-cogs"></i>
                     How It Works
                 </h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">1️⃣</div>
-                        <div class="feature-title">Upload Data</div>
-                        <div class="feature-description">Upload your export data (spreadsheet, invoice, or email)</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">2️⃣</div>
-                        <div class="feature-title">We Calculate</div>
-                        <div class="feature-description">We calculate emissions using CBAM defaults</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">3️⃣</div>
-                        <div class="feature-title">Get Reports</div>
-                        <div class="feature-description">You get your PDF + XML reports</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">4️⃣</div>
-                        <div class="feature-title">Submit</div>
-                        <div class="feature-description">Submit to EU portal or attach to shipments</div>
-                    </div>
-                </div>
+                                 <div class="features-grid">
+                     <div class="feature-card card-upload">
+                         <div class="feature-content">
+                             <div class="feature-icon">1️⃣</div>
+                             <div class="feature-title">Upload Data</div>
+                             <div class="feature-description">Upload your export data (spreadsheet, invoice, or email)</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-calculate">
+                         <div class="feature-content">
+                             <div class="feature-icon">2️⃣</div>
+                             <div class="feature-title">We Calculate</div>
+                             <div class="feature-description">We calculate emissions using CBAM defaults</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-reports">
+                         <div class="feature-content">
+                             <div class="feature-icon">3️⃣</div>
+                             <div class="feature-title">Get Reports</div>
+                             <div class="feature-description">You get your PDF + XML reports</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-submit">
+                         <div class="feature-content">
+                             <div class="feature-icon">4️⃣</div>
+                             <div class="feature-title">Submit</div>
+                             <div class="feature-description">Submit to EU portal or attach to shipments</div>
+                         </div>
+                     </div>
+                 </div>
             </div>
         </section>
 
@@ -1176,33 +1309,43 @@
                     <i class="fas fa-users"></i>
                     Who Is This For?
                 </h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🏭</div>
-                        <div class="feature-title">Steel & Aluminium Exporters</div>
-                        <div class="feature-description">Direct manufacturers and trading companies</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🌾</div>
-                        <div class="feature-title">Fertilizer & Cement Suppliers</div>
-                        <div class="feature-description">Chemical and construction material exporters</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">👥</div>
-                        <div class="feature-title">Consultants</div>
-                        <div class="feature-description">Managing multiple MSME clients</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚖️</div>
-                        <div class="feature-title">Legal/Customs Teams</div>
-                        <div class="feature-description">Needing compliance reports</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🏢</div>
-                        <div class="feature-title">MSMEs</div>
-                        <div class="feature-description">Without full emissions breakdowns</div>
-                    </div>
-                </div>
+                                 <div class="features-grid">
+                     <div class="feature-card card-steel">
+                         <div class="feature-content">
+                             <div class="feature-icon">🏭</div>
+                             <div class="feature-title">Steel & Aluminium Exporters</div>
+                             <div class="feature-description">Direct manufacturers and trading companies</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-fertilizer">
+                         <div class="feature-content">
+                             <div class="feature-icon">🌾</div>
+                             <div class="feature-title">Fertilizer & Cement Suppliers</div>
+                             <div class="feature-description">Chemical and construction material exporters</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-consultants">
+                         <div class="feature-content">
+                             <div class="feature-icon">👥</div>
+                             <div class="feature-title">Consultants</div>
+                             <div class="feature-description">Managing multiple MSME clients</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-legal">
+                         <div class="feature-content">
+                             <div class="feature-icon">⚖️</div>
+                             <div class="feature-title">Legal/Customs Teams</div>
+                             <div class="feature-description">Needing compliance reports</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-msmes">
+                         <div class="feature-content">
+                             <div class="feature-icon">🏢</div>
+                             <div class="feature-title">MSMEs</div>
+                             <div class="feature-description">Without full emissions breakdowns</div>
+                         </div>
+                     </div>
+                 </div>
             </div>
         </section>
 
@@ -1236,33 +1379,43 @@
                     <i class="fas fa-star"></i>
                     Why EncarbonSys
                 </h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <div class="feature-title">Built for Exporters</div>
-                        <div class="feature-description">No ESG theatre — just compliance that works</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚙️</div>
-                        <div class="feature-title">Default-value Engine</div>
-                        <div class="feature-description">Automated emissions calculations using official CBAM values</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <div class="feature-title">PDF & XML Outputs</div>
-                        <div class="feature-description">Submission-ready formats for EU portals</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🇮🇳</div>
-                        <div class="feature-title">India-first, EU-compliant</div>
-                        <div class="feature-description">Built specifically for Indian exporters</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">💳</div>
-                        <div class="feature-title">Pay Per Report</div>
-                        <div class="feature-description">No login, no platform fees — simple pricing</div>
-                    </div>
-                </div>
+                                 <div class="features-grid">
+                     <div class="feature-card card-exporters">
+                         <div class="feature-content">
+                             <div class="feature-icon">🎯</div>
+                             <div class="feature-title">Built for Exporters</div>
+                             <div class="feature-description">No ESG theatre — just compliance that works</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-engine">
+                         <div class="feature-content">
+                             <div class="feature-icon">⚙️</div>
+                             <div class="feature-title">Default-value Engine</div>
+                             <div class="feature-description">Automated emissions calculations using official CBAM values</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-outputs">
+                         <div class="feature-content">
+                             <div class="feature-icon">📊</div>
+                             <div class="feature-title">PDF & XML Outputs</div>
+                             <div class="feature-description">Submission-ready formats for EU portals</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-india">
+                         <div class="feature-content">
+                             <div class="feature-icon">🇮🇳</div>
+                             <div class="feature-title">India-first, EU-compliant</div>
+                             <div class="feature-description">Built specifically for Indian exporters</div>
+                         </div>
+                     </div>
+                     <div class="feature-card card-payment">
+                         <div class="feature-content">
+                             <div class="feature-icon">💳</div>
+                             <div class="feature-title">Pay Per Report</div>
+                             <div class="feature-description">No login, no platform fees — simple pricing</div>
+                         </div>
+                     </div>
+                 </div>
             </div>
         </section>
 
